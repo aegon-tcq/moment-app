@@ -26,7 +26,9 @@ const btnConfig = [
 
 function ChooseInterestScreen() {
   return (
-    <ScrollView style={{backgroundColor:"#FFF"}} >
+    <ScrollView 
+    showsVerticalScrollIndicator={false}
+    style={{backgroundColor:"#FFF"}} >
       <View style={styles.container}>
         <Text style={styles.headingText}>Choose Interests</Text>
         <View

@@ -24,6 +24,7 @@ var styles = StyleSheet.create({
   linearGradient: {
     height: 50,
     borderRadius: 40,
+    margin:20
   },
   buttonText: {
     fontSize: 18,

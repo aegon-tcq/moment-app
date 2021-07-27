@@ -1,13 +1,19 @@
 import React from 'react';
-import {Text, View, Image, StyleSheet, TouchableOpacity} from 'react-native';
+import {Text, View, Dimensions, StyleSheet, TouchableOpacity, ScrollView} from 'react-native';
 import FormInputWithTitle from '../components/formInputs/FormInputWithTitle';
 import GradientButton from '../components/buttons/GradientButton';
 import MaterialIcons from 'react-native-vector-icons/dist/MaterialIcons';
 import EvilIcons from 'react-native-vector-icons/dist/EvilIcons';
 import LinearGradient from 'react-native-linear-gradient';
 
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
+
 export default CreateProfileScreen = ({navigation}) => {
   return (
+    <ScrollView
+    showsVerticalScrollIndicator={false}
+    >
     <View style={styles.container}>
       <View style={{flex:0.5}} >
       <LinearGradient
@@ -37,10 +43,6 @@ export default CreateProfileScreen = ({navigation}) => {
             title={'Location'}
             placeholder={'Enter Location'}
           />
-          <FormInputWithTitle
-            title={'Identification'}
-            placeholder={'Driver’s License etc.'}
-          />
           <TouchableOpacity style={{alignSelf: 'flex-end',flexDirection:"row",alignItems:"center",marginTop:10}}>
           <EvilIcons name={"paperclip"} size={20} color={"#287287"}/>
             <Text
@@ -56,12 +58,13 @@ export default CreateProfileScreen = ({navigation}) => {
       onPress={() => navigation.navigate('ChooseInterestScreen')}
       btnText={'Save Profile'} />
     </View>
+    </ScrollView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    height:windowHeight,
     backgroundColor: '#FFF',
   },
   linearGradient: {

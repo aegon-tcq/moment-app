@@ -11,7 +11,7 @@ import FormTextInput from '../components/formInputs/FormTextInput';
 import GradientButton from '../components/buttons/GradientButton';
 import TransParentButton from '../components/buttons/TransParentButton';
 import RBSheet from 'react-native-raw-bottom-sheet';
-import OtpInputs from 'react-native-otp-inputs';
+import OtpInput from '../components/OtpInput';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -20,11 +20,18 @@ export default SignUpScreen = ({navigation}) => {
   const refRBSheet = useRef();
 
   const navigateToCreateProfile = () => {
-    navigation.navigate('CreateProfileScreen');
+    signUp();
+    // navigation.navigate('CreateProfileScreen');
   };
 
+  const signUp = () => {
+    refRBSheet.current.open()
+  }
+
   return (
-    <ScrollView style={{flex: 1}} contentContainerStyle={{flexGrow: 1}}>
+    <ScrollView style={{flex: 1}} 
+    showsVerticalScrollIndicator={false}
+    contentContainerStyle={{flexGrow: 1}}>
       <View style={styles.container}>
         <View style={{height: windowHeight * 0.2}}>
           <Image
@@ -45,6 +52,7 @@ export default SignUpScreen = ({navigation}) => {
             <FormTextInput placeholder={'Password'} />
             <FormTextInput placeholder={'Phone Number'} />
             <FormTextInput placeholder={'Date of Birth'} />
+            
           </View>
         </View>
         <GradientButton onPress={navigateToCreateProfile} btnText={'Sign Up'} />
@@ -53,6 +61,20 @@ export default SignUpScreen = ({navigation}) => {
           btnText={'Log In'}
         />
       </View>
+      <RBSheet
+        ref={refRBSheet}
+        closeOnDragDown={true}
+        height={350}
+        closeOnPressMask={false}
+        customStyles={{
+          draggableIcon: {
+            backgroundColor: "#000"
+          }
+        }}
+      >
+        <OtpInput
+        navigation={navigation} />
+      </RBSheet>
     </ScrollView>
   );
 };
