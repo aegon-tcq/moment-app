@@ -12,6 +12,8 @@ target 'momentz' do
     :hermes_enabled => false
   )
 
+  pod 'RNSVG', :path => '../node_modules/react-native-svg'
+
   target 'momentzTests' do
     inherit! :complete
     # Pods for testing
