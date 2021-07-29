@@ -4,12 +4,13 @@ import LoginScreen from '../screens/LoginScreen';
 import SignUpScreen from '../screens/SignUpScreen';
 import ChooseInterestScreen from '../screens/ChooseInterestScreen';
 import CreateProfileScreen from '../screens/CreateProfileScreen';
+import ExploreSearchScreen from './../screens/ExploreSearchScreen';
 
 const LoginStack = createStackNavigator();
 
 export default UserLoginStack = () => {
   return (
-    <LoginStack.Navigator initialRouteName={'LoginScreen'}>
+    <LoginStack.Navigator initialRouteName={'ExploreScreen'}>
       <LoginStack.Screen
         options={{headerShown: false}}
         name="LoginScreen"
@@ -29,6 +30,11 @@ export default UserLoginStack = () => {
         options={{headerShown: false}}
         name="ChooseInterestScreen"
         component={ChooseInterestScreen}
+      />
+      <LoginStack.Screen
+        options={{headerShown: false}}
+        name="ExploreScreen"
+        component={ExploreSearchScreen}
       />
     </LoginStack.Navigator>
   );
