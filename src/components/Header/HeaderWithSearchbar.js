@@ -15,6 +15,8 @@ const HeaderWithSearchbar = ({
   colors = ['#2A7E8D', '#140C56'],
   headerStyle = {},
   title = 'Header Title',
+  onPressFilterBtn = () => {},
+  onPressLocationBtn = () => {},
 }) => {
   return (
     <LinearGradient
@@ -26,10 +28,10 @@ const HeaderWithSearchbar = ({
       <View style={styles.titleRow}>
         <Text style={styles.ttileText}>{title}</Text>
         <View style={styles.flexRow}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={onPressFilterBtn}>
             <SettingsIcon />
           </TouchableOpacity>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={onPressLocationBtn}>
             <LocationIcon />
           </TouchableOpacity>
         </View>
@@ -69,6 +71,4 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontWeight: 'bold',
   },
-
 });
-
