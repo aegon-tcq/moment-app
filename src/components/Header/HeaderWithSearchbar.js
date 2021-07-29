@@ -11,7 +11,6 @@ import LocationIcon from '../../assets/icons/Location.svg';
 import SettingsIcon from '../../assets/icons/Filter.svg';
 import Searchbar from '../Searchbar';
 
-
 const HeaderWithSearchbar = ({
   colors = ['#2A7E8D', '#140C56'],
   headerStyle = {},
@@ -70,4 +69,6 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontWeight: 'bold',
   },
+
 });
+

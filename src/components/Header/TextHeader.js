@@ -4,6 +4,7 @@ import LinearGradient from 'react-native-linear-gradient';
 import Octicons from 'react-native-vector-icons/dist/Octicons';
 import AntDesign from 'react-native-vector-icons/dist/AntDesign';
 import EvilIcons from 'react-native-vector-icons/dist/EvilIcons';
+import SettingsIcon from '../../assets/icons/Filter.svg';
 
 const CustomButton = ({icon}) => {
   return <TouchableOpacity>{icon}</TouchableOpacity>;
@@ -24,7 +25,7 @@ function TextHeader({headerText = 'HEADER_TEXT'}) {
           <Text style={styles.headerText}>{headerText}</Text>
         </View>
         <CustomButton
-          icon={<Octicons name={'settings'} size={30} color={'#FFF'} />}
+          icon={<SettingsIcon />}
         />
         <CustomButton
           icon={<EvilIcons name={'location'} size={30} color={'#FFF'} />}

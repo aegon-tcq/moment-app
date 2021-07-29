@@ -19,7 +19,9 @@
  import UserLoginStack from './src/navigators/UserLoginStack';
  import SplashScreen from './src/screens/SplashScreen';
  import {NavigationContainer} from '@react-navigation/native';
- 
+ import ExploreEventSearchScreen from './src/screens/ExploreEventSearchScreen'
+import ExploreCategoryScreen from './src/screens/ExploreCategoryScreen'
+
  const App = () => {
    const [showSplashScreen, setShowSplashScreen] = React.useState(true);
  
