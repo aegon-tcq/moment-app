@@ -18,20 +18,6 @@ function OtpInput({navigation}) {
   return (
     <View style={styles.container}>
       <Text style={styles.headerText}>Confirm OTP sent to (5879)</Text>
-      {/* <OTPInputView
-        style={{width: 300, height: 200}}
-        pinCount={4}
-        // code={this.state.code} //You can supply this prop or not. The component will be used as a controlled / uncontrolled component respectively.
-        // onCodeChanged = {code => { this.setState({code})}}
-        placeholderTextColor={"#000"}
-        autoFocusOnLoad
-        codeInputFieldStyle={styles.underlineStyleBase}
-        codeInputHighlightStyle={styles.underlineStyleHighLighted}
-        onCodeFilled={code => {
-          console.log(`Code is ${code}, you are good to go!`);
-          navigation.navigate('CreateProfileScreen');
-        }}
-      /> */}
       <View style={{height:"70%"}} >
       <OtpInputs
           handleChange={(code) => navigateToNextScreen(code)}
