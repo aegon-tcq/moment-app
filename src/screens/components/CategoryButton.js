@@ -2,10 +2,18 @@ import React from 'react';
 import {StyleSheet, TouchableOpacity, Text, View} from 'react-native';
 import Colors from '../../constants/Colors';
 
-const CategoryButton = ({icon, btnStyle = {}, onPress, label}) => {
+const CategoryButton = ({icon, btnStyle = {}, onPress, label, isSelected}) => {
   return (
     <View style={styles.btnView}>
-      <TouchableOpacity style={[styles.btnStyle, btnStyle]} onPress={onPress}>
+      <TouchableOpacity
+        style={[
+          styles.btnStyle,
+          {
+            backgroundColor: isSelected ? Colors.violet : Colors.violedBg,
+          },
+          btnStyle,
+        ]}
+        onPress={onPress}>
         {icon}
       </TouchableOpacity>
       <Text

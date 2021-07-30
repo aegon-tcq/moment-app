@@ -5,6 +5,7 @@ import SignUpScreen from '../screens/SignUpScreen';
 import ChooseInterestScreen from '../screens/ChooseInterestScreen';
 import CreateProfileScreen from '../screens/CreateProfileScreen';
 import ExploreSearchScreen from './../screens/ExploreSearchScreen';
+import FilterScreen from './../screens/FilterScreen/index';
 
 const LoginStack = createStackNavigator();
 
@@ -35,6 +36,11 @@ export default UserLoginStack = () => {
         options={{headerShown: false}}
         name="ExploreScreen"
         component={ExploreSearchScreen}
+      />
+      <LoginStack.Screen
+        options={{headerShown: false}}
+        name="FilterScreen"
+        component={FilterScreen}
       />
     </LoginStack.Navigator>
   );

@@ -7,53 +7,69 @@ import ExhibitionIcon from '../../assets/icons/Pencil.svg';
 import PartyIcon from '../../assets/icons/Glass.svg';
 import NetworkingIcon from '../../assets/icons/Handshake.svg';
 import WorkshopIcon from '../../assets/icons/Workshop.svg';
+import MicWhiteIcon from '../../assets/icons/MicWhite.svg';
+import PartyIconWhite from '../../assets/icons/GlassWhite.svg';
+import CelebrationIconWhite from '../../assets/icons/HatWhite.svg';
+import ExhibitionIconWhite from '../../assets/icons/PencilWhite.svg';
+import NetworkingIconWhite from '../../assets/icons/HandshakeWhite.svg';
+import WorkshopIconWhite from '../../assets/icons/WorkshopWhite.svg';
 import CategoryButton from './CategoryButton';
 
-const Categories = () => {
+const Categories = ({isFilter = false, categoryFilter = []}) => {
+  const iconsDefault = [
+    <MicIcon />,
+    <CelebrationIcon />,
+    <ExhibitionIcon />,
+    <PartyIcon />,
+    <NetworkingIcon />,
+    <WorkshopIcon />,
+  ];
+  const iconsWhite = [
+    <MicWhiteIcon />,
+    <CelebrationIconWhite />,
+    <ExhibitionIconWhite />,
+    <PartyIconWhite />,
+    <NetworkingIconWhite />,
+    <WorkshopIconWhite />,
+  ];
   const categorys = [
     {
       key: 0,
       label: 'Shows',
       route: 'Shows',
-      icon: <MicIcon />,
     },
     {
       key: 1,
       label: 'Celebrations',
       route: 'Celebrations',
-      icon: <CelebrationIcon />,
     },
     {
       key: 2,
       label: 'Exhibitions',
       route: 'Exhibitions',
-      icon: <ExhibitionIcon />,
     },
     {
       key: 3,
       label: 'Parties',
       route: 'Parties',
-      icon: <PartyIcon />,
     },
     {
       key: 4,
       label: 'Networking',
       route: 'Networking',
-      icon: <NetworkingIcon />,
     },
     {
       key: 5,
       label: 'Workshops',
       route: 'Workshops',
-      icon: <WorkshopIcon />,
     },
   ];
   return (
     <View style={styles.categoriesView}>
       <Text
         style={{
-          fontSize: 20,
-          fontWeight: '700',
+          fontSize: isFilter ? 18 : 20,
+          fontWeight: '500',
           color: Colors.violetShade,
           marginBottom: 5,
           marginLeft: 4,
@@ -67,8 +83,15 @@ const Categories = () => {
         showsHorizontalScrollIndicator={false}
         horizontal
         data={categorys}
-        renderItem={({item}) => {
-          return <CategoryButton {...item} />;
+        renderItem={({item, index}) => {
+          const isSelected = categoryFilter.includes(item.key);
+          return (
+            <CategoryButton
+              {...item}
+              isSelected={isFilter ? isSelected : false}
+              icon={isSelected ? iconsWhite[index] : iconsDefault[index]}
+            />
+          );
         }}
       />
     </View>
