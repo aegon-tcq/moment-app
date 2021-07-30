@@ -17,9 +17,9 @@ const windowHeight = Dimensions.get('window').height;
 
 export default LoginScreen = ({navigation}) => {
   return (
-    <ScrollView 
-    contentContainerStyle={{flexGrow:1}}
-    showsVerticalScrollIndicator={false}>
+    <ScrollView
+      contentContainerStyle={{flexGrow: 1}}
+      showsVerticalScrollIndicator={false}>
       <View style={styles.container}>
         <View style={{height: windowHeight * 0.2}}>
           <Image
@@ -51,14 +51,14 @@ export default LoginScreen = ({navigation}) => {
           </View>
         </View>
         <View>
-        <GradientButton
-          onPress={() => navigation.navigate('SignUpScreen')}
-          btnText={'Log In'}
-        />
-        <TransParentButton
-          onPress={() => navigation.navigate('SignUpScreen')}
-          btnText={'SignUp'}
-        />
+          <GradientButton
+            onPress={() => navigation.navigate('ExploreScreen')}
+            btnText={'Log In'}
+          />
+          <TransParentButton
+            onPress={() => navigation.navigate('SignUpScreen')}
+            btnText={'SignUp'}
+          />
         </View>
       </View>
     </ScrollView>
@@ -68,7 +68,7 @@ export default LoginScreen = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent:"space-between",
+    justifyContent: 'space-between',
     padding: 20,
     backgroundColor: '#FFF',
   },

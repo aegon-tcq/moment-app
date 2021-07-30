@@ -14,8 +14,10 @@ import ExhibitionIconWhite from '../../assets/icons/PencilWhite.svg';
 import NetworkingIconWhite from '../../assets/icons/HandshakeWhite.svg';
 import WorkshopIconWhite from '../../assets/icons/WorkshopWhite.svg';
 import CategoryButton from './CategoryButton';
+import {useNavigation} from '@react-navigation/native';
 
 const Categories = ({isFilter = false, categoryFilter = []}) => {
+  const navigation = useNavigation();
   const iconsDefault = [
     <MicIcon />,
     <CelebrationIcon />,
@@ -36,32 +38,27 @@ const Categories = ({isFilter = false, categoryFilter = []}) => {
     {
       key: 0,
       label: 'Shows',
-      route: 'Shows',
+      route: 'ExploreCategoryScreen',
     },
     {
       key: 1,
       label: 'Celebrations',
-      route: 'Celebrations',
     },
     {
       key: 2,
       label: 'Exhibitions',
-      route: 'Exhibitions',
     },
     {
       key: 3,
       label: 'Parties',
-      route: 'Parties',
     },
     {
       key: 4,
       label: 'Networking',
-      route: 'Networking',
     },
     {
       key: 5,
       label: 'Workshops',
-      route: 'Workshops',
     },
   ];
   return (
@@ -90,6 +87,11 @@ const Categories = ({isFilter = false, categoryFilter = []}) => {
               {...item}
               isSelected={isFilter ? isSelected : false}
               icon={isSelected ? iconsWhite[index] : iconsDefault[index]}
+              onPress={() => {
+                if (item.route) {
+                  navigation.navigate(item.route);
+                }
+              }}
             />
           );
         }}

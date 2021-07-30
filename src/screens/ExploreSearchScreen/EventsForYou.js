@@ -4,7 +4,8 @@ import Colors from '../../constants/Colors';
 import EventCard from '../../components/Cards/EventCard';
 import IconButton from './../../components/buttons/IconButton';
 import EntypoIcon from 'react-native-vector-icons/Entypo';
-const EventsForYou = () => {
+
+const EventsForYou = ({onPressAllEvent}) => {
   const events = [
     {
       key: 0,
@@ -36,11 +37,12 @@ const EventsForYou = () => {
           Events For You
         </Text>
         <IconButton
+          onPress={onPressAllEvent}
           icon={
             <EntypoIcon
               name="chevron-right"
               style={{
-                fontSize: 20,
+                fontSize: 16,
                 color: '#fff',
               }}
             />
