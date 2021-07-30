@@ -15,6 +15,9 @@ const HeaderWithSearchbar = ({
   colors = ['#2A7E8D', '#140C56'],
   headerStyle = {},
   title = 'Header Title',
+  showtagline = false,
+  tagLine = "tag line",
+  searchplaceholder = "Search events",
   onPressFilterBtn = () => {},
   onPressLocationBtn = () => {},
 }) => {
@@ -27,17 +30,20 @@ const HeaderWithSearchbar = ({
       <StatusBar translucent={true} backgroundColor={'transparent'} />
       <View style={styles.titleRow}>
         <Text style={styles.ttileText}>{title}</Text>
-        <View style={styles.flexRow}>
+        { !showtagline ? <View style={styles.flexRow}>
           <TouchableOpacity onPress={onPressFilterBtn}>
             <SettingsIcon />
           </TouchableOpacity>
           <TouchableOpacity onPress={onPressLocationBtn}>
             <LocationIcon />
           </TouchableOpacity>
-        </View>
+        </View> : null
+
+        }
       </View>
+      {showtagline ? <Text style={styles.tagLineText} >{tagLine}</Text> : null}
       <View>
-        <Searchbar />
+        <Searchbar placeholder={searchplaceholder} />
       </View>
     </LinearGradient>
   );
@@ -70,5 +76,12 @@ const styles = StyleSheet.create({
     fontSize: 24,
     color: '#fff',
     fontWeight: 'bold',
+  },
+  tagLineText: {
+    fontSize: 11,
+    lineHeight:22,
+    color: '#fff',
+    fontWeight: 'bold',
+    marginVertical:5
   },
 });

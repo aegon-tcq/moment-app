@@ -5,13 +5,15 @@ import LinearGradient from 'react-native-linear-gradient';
 function GradientButton({
   colors = ['#2A7E8D', '#140C56'],
   onPress = ()=>console.log("Pressed"),
-  btnText = "Button Text"}) {
+  btnText = "Button Text",
+  btnStyles = {}
+}) {
   return (
     <LinearGradient
       start={{x: 0, y: 0.5}}
       end={{x: 1, y: 0.5}}
       colors={colors}
-      style={styles.linearGradient}>
+      style={[styles.linearGradient,btnStyles]}>
       <TouchableOpacity  onPress={onPress} style={{flex:1,alignItems:"center",justifyContent:"center"}} >
       <Text style={styles.buttonText}>{btnText}</Text>
       </TouchableOpacity>
