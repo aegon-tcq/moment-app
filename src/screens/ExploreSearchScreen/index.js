@@ -1,8 +1,9 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {ScrollView, StyleSheet, Text, View} from 'react-native';
 import HeaderWithSearchbar from '../../components/Header/HeaderWithSearchbar';
 import Categories from '../components/Categories';
 import EventsForYou from './EventsForYou';
+import NearbySection from './NearbySection';
 import ViewAllEventsButton from './ViewAllEventsButton';
 
 const ExploreSearchScreen = ({navigation}) => {
@@ -13,9 +14,14 @@ const ExploreSearchScreen = ({navigation}) => {
         title="Explore"
         onPressFilterBtn={() => handleNavigationTo('FilterScreen')}
       />
-      <EventsForYou />
-      <Categories />
-      <ViewAllEventsButton />
+      <ScrollView>
+        <EventsForYou
+          onPressAllEvent={() => handleNavigationTo('ExploreEventSearchScreen')}
+        />
+        <Categories />
+        <ViewAllEventsButton />
+        <NearbySection />
+      </ScrollView>
     </View>
   );
 };

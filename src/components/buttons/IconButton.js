@@ -3,7 +3,7 @@ import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 import Colors from '../../constants/Colors';
 
 const IconButton = ({
-  padding = 5,
+  padding = 3,
   radius = 20,
   color = Colors.violetDark,
   icon,
