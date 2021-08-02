@@ -6,13 +6,14 @@ import ExploreEventSearchScreen from '../screens/ExploreEventSearchScreen';
 import ExploreCategoryScreen from '../screens/ExploreCategoryScreen';
 import ChangeLocationScreen from '../screens/ChangeLocationScreen';
 import TabNavigator from './TabNavigator';
-import TicketPurchaseComplete from './../screens/TicketPurchaseComplete/index';
+import TicketPurchasePay from './../screens/TicketPurchasePay/index';
+import TicketsListScreen from './../screens/TicketsListScreen/index';
 
 const HomeStack = createStackNavigator();
 
 export default HomeStackNavigator = () => {
   return (
-    <HomeStack.Navigator initialRouteName={'TicketPurchaseComplete'}>
+    <HomeStack.Navigator initialRouteName={'ExploreSearchScreen'}>
       <HomeStack.Screen
         options={{headerShown: false}}
         name="test"
@@ -45,8 +46,18 @@ export default HomeStackNavigator = () => {
       />
       <HomeStack.Screen
         options={{headerShown: false}}
+        name="TicketPuchasePay"
+        component={TicketPurchasePay}
+      />
+      <HomeStack.Screen
+        options={{headerShown: false}}
         name="TicketPurchaseComplete"
-        component={TicketPurchaseComplete}
+        component={TicketsListScreen}
+      />
+      <HomeStack.Screen
+        options={{headerShown: false}}
+        name="ViewTickets"
+        component={TicketsListScreen}
       />
     </HomeStack.Navigator>
   );

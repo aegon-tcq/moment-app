@@ -1,15 +1,17 @@
 import React from 'react';
 import {FlatList, StyleSheet, Text, View, ScrollView} from 'react-native';
-import GradientBackground from './../../containers/GradientBackground';
-import AppHeader from './../../components/Header/AppHeader';
-import TicketCard from './../../components/Cards/TicketCard';
+import GradientBackground from '../../containers/GradientBackground';
+import AppHeader from '../../components/Header/AppHeader';
+import TicketCard from '../../components/Cards/TicketCard';
 import ContainedButton from '../../components/buttons/ContainedButton';
 
-const TicketPurchaseComplete = ({
+const TicketsListScreen = ({
   count = 5,
   type = 'regular',
   tickets = [0, 1, 2],
+  navigation,
 }) => {
+  const viewTicket = navigation.state.routeName === 'ViewTickets';
   const handleOnScroll = event => {
     console.log(event.nativeEvent.contentOffset.x);
   };
@@ -21,10 +23,17 @@ const TicketPurchaseComplete = ({
           paddingBottom: 80,
         }}>
         <View style={styles.description}>
-          <Text
-            style={
-              styles.descriptionText
-            }>{`Your tickers (${count} ${type}) were successfully \n purchased`}</Text>
+          {viewTicket ? (
+            <Text
+              style={
+                styles.descriptionText
+              }>{`Your have (${count} ${type}) regular tickets to this event`}</Text>
+          ) : (
+            <Text
+              style={
+                styles.descriptionText
+              }>{`Your tickets (${count} ${type}) were successfully \n purchased`}</Text>
+          )}
         </View>
         <FlatList
           keyExtractor={item => item}
@@ -48,13 +57,17 @@ const TicketPurchaseComplete = ({
             Send tickets to email
           </Text>
         </View>
-        <ContainedButton btnText="Go to Explore Page" />
+        {viewTicket ? (
+          <ContainedButton btnText="Buy Tickets" />
+        ) : (
+          <ContainedButton btnText="Go to Explore Page" />
+        )}
       </ScrollView>
     </GradientBackground>
   );
 };
 
-export default TicketPurchaseComplete;
+export default TicketsListScreen;
 
 const styles = StyleSheet.create({
   description: {

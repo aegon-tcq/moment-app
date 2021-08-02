@@ -39,8 +39,7 @@ const App = () => {
   if (showSplashScreen) return <SplashScreen />;
   return (
     <NavigationContainer>
-      {/* {user === {} ? <UserLoginStack /> : <HomeStackNavigator />} */}
-      <HomeStackNavigator />
+      {!user.token ? <UserLoginStack /> : <HomeStackNavigator />}
     </NavigationContainer>
   );
 };
