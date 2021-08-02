@@ -27,7 +27,7 @@ const App = () => {
   const [showSplashScreen, setShowSplashScreen] = React.useState(true);
 
   React.useEffect(() => {
-    console.log(user === {},user)
+    console.log(user === {}, user);
     const timeOut = setTimeout(() => {
       setShowSplashScreen(false);
     }, 2500);
@@ -37,14 +37,9 @@ const App = () => {
   }, []);
 
   if (showSplashScreen) return <SplashScreen />;
-  if (user == {})
-    return (
-      <NavigationContainer>
-        <UserLoginStack />
-      </NavigationContainer>
-    );
-  else return (
+  return (
     <NavigationContainer>
+      {/* {user === {} ? <UserLoginStack /> : <HomeStackNavigator />} */}
       <HomeStackNavigator />
     </NavigationContainer>
   );

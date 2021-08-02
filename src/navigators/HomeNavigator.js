@@ -1,17 +1,17 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import ExploreSearchScreen from '../screens/ExploreSearchScreen/index';
-import FilterScreen from "../screens/FilterScreen/index"
-import ExploreEventSearchScreen from '../screens/ExploreEventSearchScreen'
-import ExploreCategoryScreen from "../screens/ExploreCategoryScreen"
-import ChangeLocationScreen from "../screens/ChangeLocationScreen"
-
+import FilterScreen from '../screens/FilterScreen/index';
+import ExploreEventSearchScreen from '../screens/ExploreEventSearchScreen';
+import ExploreCategoryScreen from '../screens/ExploreCategoryScreen';
+import ChangeLocationScreen from '../screens/ChangeLocationScreen';
+import TicketPurchaseComplete from './../screens/TicketPurchaseComplete/index';
 
 const HomeStack = createStackNavigator();
 
 export default HomeStackNavigator = () => {
   return (
-    <HomeStack.Navigator initialRouteName={'ExploreSearchScreen'}>
+    <HomeStack.Navigator initialRouteName={'TicketPurchaseComplete'}>
       <HomeStack.Screen
         options={{headerShown: false}}
         name="ExploreSearchScreen"
@@ -37,7 +37,11 @@ export default HomeStackNavigator = () => {
         name="ChangeLocationScreen"
         component={ChangeLocationScreen}
       />
-
+      <HomeStack.Screen
+        options={{headerShown: false}}
+        name="TicketPurchaseComplete"
+        component={TicketPurchaseComplete}
+      />
     </HomeStack.Navigator>
   );
 };
