@@ -6,12 +6,13 @@ import ExploreEventSearchScreen from '../screens/ExploreEventSearchScreen';
 import ExploreCategoryScreen from '../screens/ExploreCategoryScreen';
 import ChangeLocationScreen from '../screens/ChangeLocationScreen';
 import TabNavigator from './TabNavigator';
+import TicketPurchaseComplete from './../screens/TicketPurchaseComplete/index';
 
 const HomeStack = createStackNavigator();
 
 export default HomeStackNavigator = () => {
   return (
-    <HomeStack.Navigator initialRouteName={'ExploreSearchScreen'}>
+    <HomeStack.Navigator initialRouteName={'TicketPurchaseComplete'}>
       <HomeStack.Screen
         options={{headerShown: false}}
         name="test"
@@ -42,7 +43,11 @@ export default HomeStackNavigator = () => {
         name="ChangeLocationScreen"
         component={ChangeLocationScreen}
       />
-      
+      <HomeStack.Screen
+        options={{headerShown: false}}
+        name="TicketPurchaseComplete"
+        component={TicketPurchaseComplete}
+      />
     </HomeStack.Navigator>
   );
 };
