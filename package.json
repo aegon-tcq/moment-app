@@ -10,6 +10,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@mindinventory/react-native-tab-bar-interaction": "github:mindinventory/react-native-tab-bar-interaction",
     "@react-native-clipboard/clipboard": "^1.8.4",
     "@react-native-community/masked-view": "^0.1.11",
     "@react-native-community/slider": "^3.0.3",
@@ -19,6 +20,7 @@
     "axios": "^0.21.1",
     "react": "17.0.1",
     "react-native": "0.64.2",
+    "react-native-dashed-line": "^1.1.0",
     "react-native-dotenv": "^3.1.1",
     "react-native-gesture-handler": "^1.10.3",
     "react-native-linear-gradient": "^2.5.6",

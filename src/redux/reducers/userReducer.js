@@ -1,7 +1,9 @@
-import {ADD_USER} from "../types.js";
+import {ADD_USER} from '../types.js';
 
 const intialState = {
-  name:"ayush"
+  name: 'ayush',
+  profile: null,
+  token: null,
 };
 
 export const userReducer = (state = intialState, action) => {
