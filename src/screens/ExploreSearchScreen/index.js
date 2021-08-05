@@ -20,7 +20,7 @@ const ExploreSearchScreen = ({navigation}) => {
         />
         <Categories />
         <ViewAllEventsButton />
-        <NearbySection />
+        <NearbySection navigation={navigation} />
       </ScrollView>
     </View>
   );

@@ -1,35 +1,24 @@
 import React from 'react';
 import {Text, View, TextInput, StyleSheet} from 'react-native';
-import { TextInputMask } from 'react-native-masked-text'
-
 
 export default FormTextInput = ({
-  type = 'TEXT',
   placeholder = 'Placeholder',
-  onChange = () => {},
-  value = ""
+  value = '',
+  name = '',
+  inputTextStyle = {},
+  inputContainerStyle = {},
+  onChangeText,
 }) => {
   return (
-    <View style={styles.container}>
-      {type === 'TEXT' ? (
-        <TextInput
-          style={styles.textInput}
-          placeholderTextColor={'#14142B'}
-          placeholder={placeholder}
-        />
-      ) : (
-        <TextInputMask
-          type={'datetime'}
-          options={{
-            format: 'DD-MM-YYYY',
-          }}
-          style={styles.textInput}
-          value={value}
-          placeholder={"DD-MM-YYYY"}
-          onChangeText={text => onChange(text)}
-        />
-        
-      )}
+    <View style={[styles.container,inputContainerStyle]}>
+      <TextInput
+        secureTextEntry={name === 'password'}
+        style={[styles.textInput,inputTextStyle]}
+        placeholderTextColor={'#14142B'}
+        placeholder={placeholder}
+        defaultValue={value}
+        onChangeText={txt => onChangeText(name, txt)}
+      />
     </View>
   );
 };

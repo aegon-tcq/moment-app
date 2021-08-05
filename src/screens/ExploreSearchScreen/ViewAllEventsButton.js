@@ -8,16 +8,22 @@ import {
 } from 'react-native';
 import AntIcon from 'react-native-vector-icons/AntDesign';
 import Colors from '../../constants/Colors';
-const ViewAllEventsButton = () => {
+const ViewAllEventsButton = ({
+  btnStyle = {},
+  textStyle = {},
+  leftIcon,
+  btnText = "View All Events"
+}) => {
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity style={[styles.container,btnStyle]}>
+    {leftIcon}
       <Text
-        style={{
+        style={[{
           fontSize: 18,
           fontWeight: '700',
           color: Colors.green,
-        }}>
-        View All Events
+        },textStyle]}>
+        {btnText}
       </Text>
       <AntIcon
         name="arrowright"

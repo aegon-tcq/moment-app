@@ -1,10 +1,13 @@
 import React from 'react';
 import {Text, View, Image, StyleSheet, TouchableOpacity} from 'react-native';
 
-function TransParentButton({btnText = 'Button Text',onPress = ()=>console.log("Pressed"),}) {
+function TransParentButton({
+  btnText = 'Button Text',
+  textStyle = {},
+  onPress = ()=>console.log("Pressed"),}) {
   return (
     <TouchableOpacity  onPress={onPress} style={styles.btnContainerbtnContainer}>
-      <Text style={styles.buttonText}>{btnText}</Text>
+      <Text style={[styles.buttonText,textStyle]}>{btnText}</Text>
     </TouchableOpacity>
   );
 }

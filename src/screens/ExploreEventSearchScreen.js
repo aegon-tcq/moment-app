@@ -11,7 +11,7 @@ import HeaderWithSearchbar from '../components/Header/HeaderWithSearchbar';
 import EeventExploreCard from '../components/Cards/EeventExploreCard';
 import LinearGradient from 'react-native-linear-gradient';
 
-export default ExploreEventSearchScreen = () => {
+export default ExploreEventSearchScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
       <LinearGradient
@@ -32,7 +32,9 @@ export default ExploreEventSearchScreen = () => {
           contentContainerStyle={{flexGrow: 1, alignItems: 'center'}}
           data={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]}
           keyExtractor={item => item}
-          renderItem={() => <EeventExploreCard />}
+          renderItem={() => <EeventExploreCard
+          onPress={()=>navigation.navigate("EventPermaLinkScreen")}
+           />}
         />
       </View>
     </View>

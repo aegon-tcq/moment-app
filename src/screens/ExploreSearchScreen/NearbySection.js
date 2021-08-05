@@ -5,7 +5,7 @@ import IconButton from './../../components/buttons/IconButton';
 import EntypoIcon from 'react-native-vector-icons/Entypo';
 import Colors from '../../constants/Colors';
 
-const NearbySection = () => {
+const NearbySection = ({navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.flexRow}>
@@ -45,7 +45,9 @@ const NearbySection = () => {
           contentContainerStyle={{flexGrow: 1, alignItems: 'center'}}
           data={[1, 2, 3]}
           keyExtractor={item => item}
-          renderItem={() => <EeventExploreCard />}
+          renderItem={() => <EeventExploreCard 
+            onPress={()=>navigation.navigate("EventPermaLinkScreen")}
+          />}
         />
       </View>
     </View>

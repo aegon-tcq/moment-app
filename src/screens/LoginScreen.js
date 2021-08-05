@@ -11,11 +11,14 @@ import {
 import FormTextInput from '../components/formInputs/FormTextInput';
 import GradientButton from '../components/buttons/GradientButton';
 import TransParentButton from '../components/buttons/TransParentButton';
+import {useAuthService} from './../hooks/useAuthService';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
 export default LoginScreen = ({navigation}) => {
+  const {loginForm, handleLoginFormChange, handleLoginFormSubmit} =
+    useAuthService();
   return (
     <ScrollView
       contentContainerStyle={{flexGrow: 1}}
@@ -37,8 +40,18 @@ export default LoginScreen = ({navigation}) => {
             been created on PartyApp since you’ve begun.
           </Text>
           <View style={styles.formCoantainer}>
-            <FormTextInput placeholder={'Email or Phone Number'} />
-            <FormTextInput placeholder={'Password'} />
+            <FormTextInput
+              placeholder={'Email or Phone Number'}
+              name="identifier"
+              value={loginForm.identifier}
+              onChangeText={handleLoginFormChange}
+            />
+            <FormTextInput
+              placeholder={'Password'}
+              name="password"
+              value={loginForm.password}
+              onChangeText={handleLoginFormChange}
+            />
             <TouchableOpacity style={{alignSelf: 'flex-end'}}>
               <Text
                 style={[
@@ -51,10 +64,7 @@ export default LoginScreen = ({navigation}) => {
           </View>
         </View>
         <View>
-          <GradientButton
-            onPress={() => navigation.navigate('ExploreScreen')}
-            btnText={'Log In'}
-          />
+          <GradientButton onPress={handleLoginFormSubmit} btnText={'Log In'} />
           <TransParentButton
             onPress={() => navigation.navigate('SignUpScreen')}
             btnText={'SignUp'}

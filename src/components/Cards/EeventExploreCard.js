@@ -1,18 +1,23 @@
 import React from 'react';
-import {Text, View, Image, StyleSheet, Dimensions} from 'react-native';
+import {Text, View, Image, StyleSheet, TouchableOpacity} from 'react-native';
 import EvilIcons from 'react-native-vector-icons/dist/EvilIcons';
+import Rectangle from "../../assets/icons/Rectangle.svg"
 
 function EeventExploreCard({
   location = 'Cricket Pitch, TBS, Lagos',
+  onPress = () => {},
   eventTitle = 'Gidi Fest: Bringing It Home Festival',
   profilePhoto = 'https://s3-alpha-sig.figma.com/img/15b0/5f39/3d2c0f0720c23346bfc89efd39c30e94?Expires=1628467200&Signature=Z6cFWYB0N3edQ8QZ77vOolSTdLmp3~vfT3-v2dYQB4PreHW1MvgdbuakBoCbRbDADPTwWqOQVcAQJGlPWOE4uZwhuNGB2i2yulP1F-cQuKmUkREvctM7sfevAAZDJDZXPvYrB8UM29Nbrte7jbqxFIUhaFN13VWXjvncQjZEx9Q4DIuMaTk4q4ar-yJYh91hIOT0lae8kZWimI1NJzQCjeF5zQwEA2UZcQPdfxbcnOeutRNpuoPR6zHYWeZ4pW3AuCsPKIQe8yXsPxNMC56jpUicGSLzi9QXX5mHijAYPv2wknXxvXLL15W1M4Q0fjqvujXksGWaQALdZZUMDgMrMQ__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA',
   imageUrl = 'https://s3-alpha-sig.figma.com/img/d77f/624f/58da182bdbce39b54fa97493deba2e28?Expires=1628467200&Signature=gljhpf317293ZvO2PvnON2cRJEzDQju9Zya-kB~c9e8B5cDrdcYm~zUDbKZvjfSOwbARXm3MK~p~LvlzMZsK1xDEs3SwEuSjJLzSWduL4q3kMtjU6Q2FDXuZ45MN1GOPj0JDfvFPVk946HJcs27lo3nUjsfv2nCjR473-VXl39wjVqolc2UqG7kiKTQcpcMOyJtpKRE94VEx0aSUv38G9OkfasxlgCyvda1WkC9pGJZ7hGdAaAcdTQAvQ~9xHXZ7SPm0XOqNviiYubTjJ69Sek0BvUfMic4WvFcqMM~t04WnRPCbk8k9hdnt2JvbCnokxdgGHZdhghDzx~1DZ1oKpA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA',
 }) {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity
+    onPress={onPress}
+     style={styles.container}>
     <View style={styles.priceContainer} >
+    <Rectangle />
         <Text style={styles.priceText} >PRICE</Text>
-        <Text style={{fontSize:8,color:"#FFF"}} >N,500</Text>
+        <Text style={[styles.priceText,{marginTop:10,fontSize:8,color:"#FFF"}]} >N,500</Text>
     </View>
       <View style={styles.containerChild}>
         <Image style={styles.leftImageStyle} source={{uri: imageUrl}} />
@@ -46,7 +51,7 @@ function EeventExploreCard({
           </View>
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 }
 
@@ -73,14 +78,14 @@ const styles = StyleSheet.create({
     position:"absolute",
     top:0,
     right:50,
-    backgroundColor:"#C30052",
     alignItems:"center",
-    justifyContent:"center",
-    padding:10
+    justifyContent:"space-between",
   },
   priceText:{
     color: '#FFF',
     fontSize: 4,
+    position:"absolute",
+    margin:5
   },
   containerChild: {
     flex: 1,

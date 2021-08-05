@@ -1,10 +1,15 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import ExploreSearchScreen from '../screens/ExploreSearchScreen/index';
-import FilterScreen from "../screens/FilterScreen/index"
-import ExploreEventSearchScreen from '../screens/ExploreEventSearchScreen'
-import ExploreCategoryScreen from "../screens/ExploreCategoryScreen"
-import ChangeLocationScreen from "../screens/ChangeLocationScreen"
+import FilterScreen from '../screens/FilterScreen/index';
+import ExploreEventSearchScreen from '../screens/ExploreEventSearchScreen';
+import ExploreCategoryScreen from '../screens/ExploreCategoryScreen';
+import ChangeLocationScreen from '../screens/ChangeLocationScreen';
+import TabNavigator from './TabNavigator';
+import TicketPurchasePay from './../screens/TicketPurchasePay/index';
+import TicketsListScreen from './../screens/TicketsListScreen/index';
+import TicketSelectionScreen from "./../screens/TicketSelection/index"
+import EventPermaLinkScreen from "../screens/EventParamLink/index"
 
 
 const HomeStack = createStackNavigator();
@@ -12,6 +17,11 @@ const HomeStack = createStackNavigator();
 export default HomeStackNavigator = () => {
   return (
     <HomeStack.Navigator initialRouteName={'ExploreSearchScreen'}>
+      <HomeStack.Screen
+        options={{headerShown: false}}
+        name="test"
+        component={TabNavigator}
+      />
       <HomeStack.Screen
         options={{headerShown: false}}
         name="ExploreSearchScreen"
@@ -37,7 +47,31 @@ export default HomeStackNavigator = () => {
         name="ChangeLocationScreen"
         component={ChangeLocationScreen}
       />
-
+      <HomeStack.Screen
+        options={{headerShown: false}}
+        name="TicketSelectionScreen"
+        component={TicketSelectionScreen}
+      />
+      <HomeStack.Screen
+        options={{headerShown: false}}
+        name="EventPermaLinkScreen"
+        component={EventPermaLinkScreen}
+      />
+      <HomeStack.Screen
+        options={{headerShown: false}}
+        name="TicketPuchasePay"
+        component={TicketPurchasePay}
+      />
+      <HomeStack.Screen
+        options={{headerShown: false}}
+        name="TicketPurchaseComplete"
+        component={TicketsListScreen}
+      />
+      <HomeStack.Screen
+        options={{headerShown: false}}
+        name="ViewTickets"
+        component={TicketsListScreen}
+      />
     </HomeStack.Navigator>
   );
 };

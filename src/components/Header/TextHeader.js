@@ -11,7 +11,9 @@ const CustomButton = ({icon, onPress}) => {
   return <TouchableOpacity onPress={onPress}>{icon}</TouchableOpacity>;
 };
 
-function TextHeader({headerText = 'HEADER_TEXT'}) {
+function TextHeader({
+  headerText = 'HEADER_TEXT',
+   showRight = true}) {
   const navigation = useNavigation();
   return (
     <LinearGradient
@@ -28,10 +30,14 @@ function TextHeader({headerText = 'HEADER_TEXT'}) {
           />
           <Text style={styles.headerText}>{headerText}</Text>
         </View>
-        <CustomButton icon={<SettingsIcon />} />
-        <CustomButton
-          icon={<EvilIcons name={'location'} size={30} color={'#FFF'} />}
-        />
+        {showRight && (
+          <>
+            <CustomButton icon={<SettingsIcon />} />
+            <CustomButton
+              icon={<EvilIcons name={'location'} size={30} color={'#FFF'} />}
+            />
+          </>
+        )}
       </View>
     </LinearGradient>
   );
