@@ -12,26 +12,53 @@ import GradientButton from '../components/buttons/GradientButton';
 import TransParentButton from '../components/buttons/TransParentButton';
 import RBSheet from 'react-native-raw-bottom-sheet';
 import OtpInput from '../components/OtpInput';
+import { useDispatch } from 'react-redux'
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
 export default SignUpScreen = ({navigation}) => {
+  const [password, setPassword] = React.useState('');
+  const [phoneNo, setPhoneNo] = React.useState('');
+  const [email, setEmail] = React.useState('');
+  const [dob, setDob] = React.useState('');
+  const [otp, setOtp] = React.useState('');
+  const [otpVerify, setOtpVerify] = React.useState(false);
+
+  const dispatch = useDispatch();
+
   const refRBSheet = useRef();
 
-  const navigateToCreateProfile = () => {
-    signUp();
+  const navigateToCreateProfile = async () => {
+    // signUp();
     // navigation.navigate('CreateProfileScreen');
+    console.log("OTP Requested..")
+    let res = await fetch("http://52.15.252.232/customers/request-otp",{
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body:JSON.stringify({
+        email:"Ayusht0606@gmail.com"
+      })
+    })
+    let json = await res.text();
+    console.log(json);
+
   };
 
+  const openOtpInput = () => refRBSheet.current.open();
+
   const signUp = () => {
-    refRBSheet.current.open()
-  }
+    openOtpInput();
+  };
 
   return (
-    <ScrollView style={{flex: 1}} 
-    showsVerticalScrollIndicator={false}
-    contentContainerStyle={{flexGrow: 1}}>
+    <ScrollView
+      style={{flex: 1}}
+      showsVerticalScrollIndicator={false}
+      contentContainerStyle={{flexGrow: 1}}>
       <View style={styles.container}>
         <View style={{height: windowHeight * 0.2}}>
           <Image
@@ -48,11 +75,15 @@ export default SignUpScreen = ({navigation}) => {
             and 1,254,5797 other users having a good time.
           </Text>
           <View style={styles.formCoantainer}>
-            <FormTextInput placeholder={'Email'} />
-            <FormTextInput placeholder={'Password'} />
-            <FormTextInput placeholder={'Phone Number'} />
-            <FormTextInput placeholder={'Date of Birth'} />
-            
+            <FormTextInput onChange={setEmail} placeholder={'Email'} />
+            <FormTextInput onChange={setPassword} placeholder={'Password'} />
+            <FormTextInput onChange={setPhoneNo} placeholder={'Phone Number'} />
+            <FormTextInput
+              type={'DOB'}
+              value={dob}
+              onChange={setDob}
+              placeholder={'Date of Birth'}
+            />
           </View>
         </View>
         <GradientButton onPress={navigateToCreateProfile} btnText={'Sign Up'} />
@@ -68,12 +99,10 @@ export default SignUpScreen = ({navigation}) => {
         closeOnPressMask={false}
         customStyles={{
           draggableIcon: {
-            backgroundColor: "#000"
-          }
-        }}
-      >
-        <OtpInput
-        navigation={navigation} />
+            backgroundColor: '#000',
+          },
+        }}>
+        <OtpInput setOtp={setOtp} />
       </RBSheet>
     </ScrollView>
   );

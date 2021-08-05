@@ -6,21 +6,13 @@ import OtpInputs from 'react-native-otp-inputs';
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
-function OtpInput({navigation}) {
-
-  const [otp, setOtp] = React.useState("");
-
-  const navigateToNextScreen = (value) => {
-    setOtp(value);
-    if(value.length === 4) navigation.navigate('CreateProfileScreen');;
-  }
-
+function OtpInput({setOtp}) {
   return (
     <View style={styles.container}>
       <Text style={styles.headerText}>Confirm OTP sent to (5879)</Text>
       <View style={{height:"70%"}} >
       <OtpInputs
-          handleChange={(code) => navigateToNextScreen(code)}
+          handleChange={(code) => setOtp(code)}
           numberOfInputs={4}
           inputStyles={{
             marginHorizontal:10,

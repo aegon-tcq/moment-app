@@ -1,7 +1,8 @@
 import {ADD_USER} from "../types.js";
 
 const intialState = {
-  name:"ayush"
+  auth:false,
+  user:null
 };
 
 export const userReducer = (state = intialState, action) => {

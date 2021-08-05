@@ -37,15 +37,15 @@ const App = () => {
   }, []);
 
   if (showSplashScreen) return <SplashScreen />;
-  if (user == {})
+  if (user.auth)
     return (
       <NavigationContainer>
-        <UserLoginStack />
+        <HomeStackNavigator />
       </NavigationContainer>
     );
   else return (
     <NavigationContainer>
-      <HomeStackNavigator />
+      <UserLoginStack />
     </NavigationContainer>
   );
 };
