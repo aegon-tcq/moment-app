@@ -14,7 +14,7 @@ import MaterialIcons from 'react-native-vector-icons/dist/MaterialIcons';
 import Colors from '../constants/Colors.js';
 import HeaderWithSearchbar from '../components/Header/HeaderWithSearchbar';
 
-export default ChangeLocationScreen = () => {
+export default ChangeLocationScreen = ({navigation}) => {
   return (
     <View style={styles.container}>
       <MapView
@@ -39,8 +39,12 @@ export default ChangeLocationScreen = () => {
       <View style={styles.btnContainer}>
         <GradientButton
           btnStyles={{
-            width: '70%',
+            width: '80%',
           }}
+          onPress={() => navigation.navigate('EventDashboard')}
+          // onPress={() => navigation.navigate('CreateTicketsScreen')}
+
+          btnText={'Set Location'}
         />
         <TouchableOpacity
         onPress={()=>console.log("pressed")}

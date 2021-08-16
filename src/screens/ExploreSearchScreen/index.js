@@ -5,6 +5,7 @@ import Categories from '../components/Categories';
 import EventsForYou from './EventsForYou';
 import NearbySection from './NearbySection';
 import ViewAllEventsButton from './ViewAllEventsButton';
+import CreateEventBtn from '../../components/buttons/CreateEventBtn';
 
 const ExploreSearchScreen = ({navigation}) => {
   const handleNavigationTo = screenName => navigation.navigate(screenName);
@@ -20,8 +21,10 @@ const ExploreSearchScreen = ({navigation}) => {
         />
         <Categories />
         <ViewAllEventsButton />
+        
         <NearbySection navigation={navigation} />
       </ScrollView>
+      <CreateEventBtn onPress={()=>handleNavigationTo('EventCreationScreen')} />
     </View>
   );
 };

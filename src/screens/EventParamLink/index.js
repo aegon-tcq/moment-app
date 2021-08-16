@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import EvilIcons from 'react-native-vector-icons/dist/EvilIcons';
-import AntDesign from 'react-native-vector-icons/dist/AntDesign';
+import Crousel from '../../components/Crousel';
 import ViewAllEventsButton from '../ExploreSearchScreen/ViewAllEventsButton';
 import Colors from '../../constants/Colors';
 import GradientButton from '../../components/buttons/GradientButton';
@@ -34,7 +34,6 @@ const ReanderImage = ({
   />
 );
 
-const RenderDots = ({activeIndex = 0, noOfDots = 1}) => <View></View>;
 
 export default EventPermaLinkScreen = ({
   navigation,
@@ -53,33 +52,7 @@ export default EventPermaLinkScreen = ({
         colors={['#2A7E8D', '#140C56']}
         style={styles.linearGradient}></LinearGradient>
       <View style={styles.container}>
-        <View
-          style={{
-            position: 'absolute',
-            flexDirection: 'row',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            padding: 20,
-            width: '100%',
-            zIndex: 1,
-          }}>
-          <TouchableOpacity onPress={() => navigation.goBack()}>
-            <AntDesign name={'arrowleft'} size={30} color={'#FFF'} />
-          </TouchableOpacity>
-          <TouchableOpacity onPress={() => console.log('Pressed')}>
-            <AntDesign name={'hearto'} size={30} color={'#FFF'} />
-          </TouchableOpacity>
-        </View>
-        <View style={{height: '100%', zIndex: -1}}>
-          <FlatList
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            style={{flex: 1}}
-            data={[1, 2, 3]}
-            key={item => item.toString()}
-            renderItem={({item, index}) => <ReanderImage />}
-          />
-        </View>
+        <Crousel renderChildItem={ <ReanderImage />}  />
       </View>
       <ScrollView
         style={{

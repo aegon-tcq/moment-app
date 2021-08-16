@@ -1,7 +1,10 @@
 export default {
   description: '#4E4B66',
   gray: '#D9DBE9',
+  white:"#FFFFFF",
   grayLight: '#F7F7FC',
+  OffWhite:"#FCFCFC",
+  grayscale:'#EFF0F6',
   gradient: ['#2A7E8D', '#140C56'],
   cardGradient: ['#C1334B', '#092F49'],
   purple: '#5F2EEA',

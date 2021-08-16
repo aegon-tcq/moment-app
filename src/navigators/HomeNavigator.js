@@ -11,6 +11,9 @@ import TicketSelectionScreen from './../screens/TicketSelection/index';
 import EventPermaLinkScreen from '../screens/EventParamLink/index';
 import BottomTabNavigator from './BottomTabNavigator';
 import CreateWishlists from './../screens/CreateWishlists/index';
+import EventCreationScreen from '../screens/EventCreationScreen';
+import EventDashboard from '../screens/EventDashBoard/index';
+import CreateTicketsScreen from "../screens/CreateTicketsScreen"
 
 const HomeStack = createStackNavigator();
 
@@ -76,6 +79,21 @@ export default HomeStackNavigator = () => {
         options={{headerShown: false}}
         name="CreateWishlists"
         component={CreateWishlists}
+      />
+      <HomeStack.Screen
+        options={{headerShown: false}}
+        name="EventCreationScreen"
+        component={EventCreationScreen}
+      />
+      <HomeStack.Screen
+        options={{headerShown: false}}
+        name="EventDashboard"
+        component={EventDashboard}
+      />
+      <HomeStack.Screen
+        options={{headerShown: false}}
+        name="CreateTicketsScreen"
+        component={CreateTicketsScreen}
       />
     </HomeStack.Navigator>
   );
