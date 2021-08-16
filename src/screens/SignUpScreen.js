@@ -12,47 +12,32 @@ import GradientButton from '../components/buttons/GradientButton';
 import TransParentButton from '../components/buttons/TransParentButton';
 import RBSheet from 'react-native-raw-bottom-sheet';
 import OtpInput from '../components/OtpInput';
-import { useDispatch } from 'react-redux'
+import {useDispatch} from 'react-redux';
+import {useAuthService} from './../hooks/useAuthService';
+import {addUser} from './../redux/actions/userActions';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
 export default SignUpScreen = ({navigation}) => {
-  const [password, setPassword] = React.useState('');
-  const [phoneNo, setPhoneNo] = React.useState('');
-  const [email, setEmail] = React.useState('');
-  const [dob, setDob] = React.useState('');
-  const [otp, setOtp] = React.useState('');
-  const [otpVerify, setOtpVerify] = React.useState(false);
-
+  const {handleRegisterFormChange, handleRequestOTP, setOtp, registerForm} =
+    useAuthService();
   const dispatch = useDispatch();
 
   const refRBSheet = useRef();
 
-  const navigateToCreateProfile = async () => {
-    // signUp();
-    // navigation.navigate('CreateProfileScreen');
-    console.log("OTP Requested..")
-    let res = await fetch("http://52.15.252.232/customers/request-otp",{
-      method: 'POST',
-      headers: {
-        Accept: 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body:JSON.stringify({
-        email:"Ayusht0606@gmail.com"
-      })
-    })
-    let json = await res.text();
-    console.log(json);
-
+  const handleSignUp = async () => {
+    // if (await handleRequestOTP()) {
+    //   openOtpInput();
+    // }
+    dispatch(
+      addUser({
+        token: 'dsa',
+      }),
+    );
   };
 
   const openOtpInput = () => refRBSheet.current.open();
-
-  const signUp = () => {
-    openOtpInput();
-  };
 
   return (
     <ScrollView
@@ -64,9 +49,9 @@ export default SignUpScreen = ({navigation}) => {
           <Image
             style={{
               height: '100%',
-              width: '25%',
+              width: '28%',
             }}
-            source={require('../assets/glassIcon.jpg')}
+            source={require('../assets/momentz_final.png')}
           />
         </View>
         <View style={{flex: 0.75}}>
@@ -75,18 +60,33 @@ export default SignUpScreen = ({navigation}) => {
             and 1,254,5797 other users having a good time.
           </Text>
           <View style={styles.formCoantainer}>
-            <FormTextInput onChange={setEmail} placeholder={'Email'} />
-            <FormTextInput onChange={setPassword} placeholder={'Password'} />
-            <FormTextInput onChange={setPhoneNo} placeholder={'Phone Number'} />
+            <FormTextInput
+              name="email"
+              onChangeText={handleRegisterFormChange}
+              placeholder={'Email'}
+              value={registerForm.email}
+            />
+            <FormTextInput
+              name="password"
+              onChangeText={handleRegisterFormChange}
+              placeholder={'Password'}
+              value={registerForm.password}
+            />
+            <FormTextInput
+              name="phoneNumber"
+              onChangeText={handleRegisterFormChange}
+              placeholder={'Phone Number'}
+              value={registerForm.phoneNumber}
+            />
             <FormTextInput
               type={'DOB'}
-              value={dob}
-              onChange={setDob}
+              value={registerForm.dob}
+              onChangeText={handleRegisterFormChange}
               placeholder={'Date of Birth'}
             />
           </View>
         </View>
-        <GradientButton onPress={navigateToCreateProfile} btnText={'Sign Up'} />
+        <GradientButton onPress={handleSignUp} btnText={'Sign Up'} />
         <TransParentButton
           onPress={() => navigation.navigate('LoginScreen')}
           btnText={'Log In'}

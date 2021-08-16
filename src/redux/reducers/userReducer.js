@@ -3,7 +3,7 @@ import {ADD_USER} from '../types.js';
 const intialState = {
   name: 'ayush',
   profile: null,
-  token: "tocken",
+  token: null,
 };
 
 export const userReducer = (state = intialState, action) => {

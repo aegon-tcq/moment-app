@@ -5,22 +5,22 @@ import FilterScreen from '../screens/FilterScreen/index';
 import ExploreEventSearchScreen from '../screens/ExploreEventSearchScreen';
 import ExploreCategoryScreen from '../screens/ExploreCategoryScreen';
 import ChangeLocationScreen from '../screens/ChangeLocationScreen';
-import TabNavigator from './TabNavigator';
 import TicketPurchasePay from './../screens/TicketPurchasePay/index';
 import TicketsListScreen from './../screens/TicketsListScreen/index';
-import TicketSelectionScreen from "./../screens/TicketSelection/index"
-import EventPermaLinkScreen from "../screens/EventParamLink/index"
-
+import TicketSelectionScreen from './../screens/TicketSelection/index';
+import EventPermaLinkScreen from '../screens/EventParamLink/index';
+import BottomTabNavigator from './BottomTabNavigator';
+import CreateWishlists from './../screens/CreateWishlists/index';
 
 const HomeStack = createStackNavigator();
 
 export default HomeStackNavigator = () => {
   return (
-    <HomeStack.Navigator initialRouteName={'ExploreSearchScreen'}>
+    <HomeStack.Navigator initialRouteName={'HomeScreen'}>
       <HomeStack.Screen
         options={{headerShown: false}}
-        name="test"
-        component={TabNavigator}
+        name="HomeScreen"
+        component={BottomTabNavigator}
       />
       <HomeStack.Screen
         options={{headerShown: false}}
@@ -71,6 +71,11 @@ export default HomeStackNavigator = () => {
         options={{headerShown: false}}
         name="ViewTickets"
         component={TicketsListScreen}
+      />
+      <HomeStack.Screen
+        options={{headerShown: false}}
+        name="CreateWishlists"
+        component={CreateWishlists}
       />
     </HomeStack.Navigator>
   );

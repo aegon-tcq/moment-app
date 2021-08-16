@@ -2,6 +2,7 @@ import React from 'react';
 import {Text, View, ScrollView, StyleSheet, Dimensions} from 'react-native';
 import GradientButton from '../components/buttons/GradientButton';
 import CircularButton from '../components/buttons/CircularButton';
+import {useNavigation} from '@react-navigation/native';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -25,10 +26,11 @@ const btnConfig = [
 ];
 
 function ChooseInterestScreen() {
+  const navigation = useNavigation();
   return (
-    <ScrollView 
-    showsVerticalScrollIndicator={false}
-    style={{backgroundColor:"#FFF"}} >
+    <ScrollView
+      showsVerticalScrollIndicator={false}
+      style={{backgroundColor: '#FFF'}}>
       <View style={styles.container}>
         <Text style={styles.headingText}>Choose Interests</Text>
         <View
@@ -53,6 +55,9 @@ function ChooseInterestScreen() {
         <GradientButton
           colors={['#00BA88', '#00BA88']}
           btnText={'To Explore Page'}
+          onPress={() => {
+            navigation.navigate('ExploreScreen');
+          }}
         />
       </View>
     </ScrollView>

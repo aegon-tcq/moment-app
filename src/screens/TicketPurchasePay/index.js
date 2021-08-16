@@ -126,7 +126,7 @@ const TicketPurchasePay = ({
           </View>
         </ScrollView>
       </View>
-      {_renderFooterArea(navigation,"TicketsListScreen")}
+      {_renderFooterArea(navigation,"Pay N50,000")}
     </View>
   );
 };

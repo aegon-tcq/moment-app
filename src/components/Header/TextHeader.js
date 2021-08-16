@@ -6,6 +6,7 @@ import AntDesign from 'react-native-vector-icons/dist/AntDesign';
 import EvilIcons from 'react-native-vector-icons/dist/EvilIcons';
 import SettingsIcon from '../../assets/icons/Filter.svg';
 import {useNavigation} from '@react-navigation/native';
+import PopupMenu from './../PopupMenu';
 
 const CustomButton = ({icon, onPress}) => {
   return <TouchableOpacity onPress={onPress}>{icon}</TouchableOpacity>;
@@ -13,30 +14,46 @@ const CustomButton = ({icon, onPress}) => {
 
 function TextHeader({
   headerText = 'HEADER_TEXT',
-   showRight = true}) {
+  showBackArrow = true,
+  showRight = true,
+  headerStyle = {},
+  sortItems = [],
+  showPopup = false,
+  selectedItem,
+  menuIcon = null,
+}) {
   const navigation = useNavigation();
   return (
     <LinearGradient
       start={{x: 0, y: 0.5}}
       end={{x: 1, y: 0.5}}
       colors={['#2A7E8D', '#140C56']}
-      style={styles.linearGradient}>
+      style={[styles.linearGradient, headerStyle]}>
       <View style={styles.headerContainer}>
         <View
           style={{flexDirection: 'row', alignItems: 'center', width: '80%'}}>
-          <CustomButton
-            onPress={() => navigation.pop()}
-            icon={<AntDesign name={'arrowleft'} size={30} color={'#FFF'} />}
-          />
+          {showBackArrow && (
+            <CustomButton
+              onPress={() => navigation.pop()}
+              icon={<AntDesign name={'arrowleft'} size={30} color={'#FFF'} />}
+            />
+          )}
           <Text style={styles.headerText}>{headerText}</Text>
         </View>
-        {showRight && (
+        {showRight && !showPopup && (
           <>
             <CustomButton icon={<SettingsIcon />} />
             <CustomButton
               icon={<EvilIcons name={'location'} size={30} color={'#FFF'} />}
             />
           </>
+        )}
+        {showPopup && sortItems.length > 0 && (
+          <PopupMenu
+            anchor={menuIcon ? menuIcon : <SettingsIcon />}
+            items={sortItems}
+            selectedItem={selectedItem}
+          />
         )}
       </View>
     </LinearGradient>
@@ -62,6 +79,7 @@ const styles = StyleSheet.create({
   headerContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingHorizontal: 10,
+    paddingHorizontal: 15,
+    marginRight: 20,
   },
 });

@@ -6,6 +6,8 @@ export default {
   cardGradient: ['#C1334B', '#092F49'],
   purple: '#5F2EEA',
   violet: '#9C60FF',
+  violetLightShade: '#F3EFFF',
+  violetTextShade: '#BCA4FF',
   violetDark: '#B06AB3',
   violetShade: '#6E7191',
   violetDarkShade: '#4E4B66',
@@ -17,4 +19,5 @@ export default {
   primary: '#287287',
   secondary: '#140C56',
   darkPurple: '#461694',
+  tabInactive: '#5B5B5B',
 };

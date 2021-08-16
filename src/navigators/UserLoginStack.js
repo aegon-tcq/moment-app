@@ -34,26 +34,7 @@ export default UserLoginStack = () => {
         name="ChooseInterestScreen"
         component={ChooseInterestScreen}
       />
-      <LoginStack.Screen
-        options={{headerShown: false}}
-        name="ExploreScreen"
-        component={ExploreSearchScreen}
-      />
-      <LoginStack.Screen
-        options={{headerShown: false}}
-        name="FilterScreen"
-        component={FilterScreen}
-      />
-      <LoginStack.Screen
-        options={{headerShown: false}}
-        name="ExploreEventSearchScreen"
-        component={ExploreEventSearchScreen}
-      />
-      <LoginStack.Screen
-        options={{headerShown: false}}
-        name="ExploreCategoryScreen"
-        component={ExploreCategoryScreen}
-      />
+
     </LoginStack.Navigator>
   );
 };

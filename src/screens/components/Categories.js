@@ -17,6 +17,7 @@ const Categories = ({isFilter = false, categoryFilter = []}) => {
     {
       key: 1,
       label: 'Celebrations',
+      route: 'CreateWishlists',
     },
     {
       key: 2,

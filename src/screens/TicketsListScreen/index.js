@@ -4,6 +4,7 @@ import GradientBackground from '../../containers/GradientBackground';
 import AppHeader from '../../components/Header/AppHeader';
 import TicketCard from '../../components/Cards/TicketCard';
 import ContainedButton from '../../components/buttons/ContainedButton';
+import {useRoute} from '@react-navigation/core';
 
 const TicketsListScreen = ({
   count = 5,
@@ -11,7 +12,8 @@ const TicketsListScreen = ({
   tickets = [0, 1, 2],
   navigation,
 }) => {
-  const viewTicket = navigation.state.routeName === 'ViewTickets';
+  const route = useRoute();
+  const viewTicket = route.name === 'ViewTickets';
   const handleOnScroll = event => {
     console.log(event.nativeEvent.contentOffset.x);
   };

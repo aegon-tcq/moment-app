@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   ScrollView,
   Dimensions,
+  
 } from 'react-native';
 import FormTextInput from '../components/formInputs/FormTextInput';
 import GradientButton from '../components/buttons/GradientButton';
@@ -17,7 +18,7 @@ const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
 export default LoginScreen = ({navigation}) => {
-  const {loginForm, handleLoginFormChange, handleLoginFormSubmit} =
+  const {loading, loginForm, handleLoginFormChange, handleLoginFormSubmit} =
     useAuthService();
   return (
     <ScrollView
@@ -28,9 +29,9 @@ export default LoginScreen = ({navigation}) => {
           <Image
             style={{
               height: '100%',
-              width: '25%',
+              width: '28%',
             }}
-            source={require('../assets/glassIcon.jpg')}
+            source={require('../assets/momentz_final.png')}
           />
         </View>
         <View style={{flex: 0.75}}>
@@ -46,6 +47,7 @@ export default LoginScreen = ({navigation}) => {
               value={loginForm.identifier}
               onChangeText={handleLoginFormChange}
             />
+            
             <FormTextInput
               placeholder={'Password'}
               name="password"
@@ -64,7 +66,11 @@ export default LoginScreen = ({navigation}) => {
           </View>
         </View>
         <View>
-          <GradientButton onPress={handleLoginFormSubmit} btnText={'Log In'} />
+          <GradientButton
+            onPress={handleLoginFormSubmit}
+            btnText={'Log In'}
+            loading={loading}
+          />
           <TransParentButton
             onPress={() => navigation.navigate('SignUpScreen')}
             btnText={'SignUp'}
