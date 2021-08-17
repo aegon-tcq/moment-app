@@ -13,7 +13,7 @@ import BottomTabNavigator from './BottomTabNavigator';
 import CreateWishlists from './../screens/CreateWishlists/index';
 import EventCreationScreen from '../screens/EventCreationScreen';
 import EventDashboard from '../screens/EventDashBoard/index';
-import CreateTicketsScreen from "../screens/CreateTicketsScreen"
+import CreateTicketsScreen from '../screens/CreateTickets';
 
 const HomeStack = createStackNavigator();
 

@@ -9,19 +9,21 @@ import {
   FlatList,
   TouchableOpacity,
 } from 'react-native';
-import HeaderWithOptions from '../components/Header/HeaderWithOptions';
-import Colors from '../constants/Colors';
-import FormTextInput, {TextArea} from '../components/formInputs/FormTextInput';
-import ExpandableBtn from '../screens/TicketSelection/ExpandableBtn';
-import GradientButton from '../components/buttons/GradientButton';
+import HeaderWithOptions from '../../components/Header/HeaderWithOptions';
+import Colors from '../../constants/Colors';
+import FormTextInput, {
+  TextArea,
+} from '../../components/formInputs/FormTextInput';
+import GradientButton from '../../components/buttons/GradientButton';
 import RBSheet from 'react-native-raw-bottom-sheet';
-import TransParentButton from './../components/buttons/TransParentButton';
+import TransParentButton from '../../components/buttons/TransParentButton';
 import AntDesign from 'react-native-vector-icons/dist/AntDesign';
-import Done from '../assets/icons/Done.svg';
+import Done from '../../assets/icons/Done.svg';
 import Ionicons from 'react-native-vector-icons/dist/Ionicons';
+
 export default CreateTicketsScreen = ({navigation}) => {
   const refRBSheet = React.useRef();
-  const [itemType, setItemType] = React.useState('gift');
+
   return (
     <ScrollView
       style={{flex: 1, paddingBottom: 20}}
@@ -61,45 +63,19 @@ export default CreateTicketsScreen = ({navigation}) => {
       <RBSheet
         ref={refRBSheet}
         closeOnDragDown={true}
-        height={500}
+        height={300}
         closeOnPressMask={false}
         customStyles={{
           draggableIcon: {
             backgroundColor: '#000',
           },
         }}>
-        {/* <TicketPurchaseSuccess /> */}
-        <SelectDressCode />
+        <TicketPurchaseSuccess />
       </RBSheet>
     </ScrollView>
   );
 };
 
-const SelectDressCode = () => {
-  return (
-    <View style={styles.selectDress}>
-      <View style={{flex: 1}}>
-        <Text style={styles.sdTitle}>Categories</Text>
-      </View>
-      <View style={styles.sdItem}>
-        <Text style={styles.sdTitle}>Choose Colour</Text>
-        <TouchableOpacity style={styles.addWl}>
-          <Text style={styles.text}>Add Colour</Text>
-          <Ionicons name={'add-sharp'} size={30} color={Colors.violetShade} />
-        </TouchableOpacity>
-      </View>
-      <View style={styles.sdItem}>
-        <Text style={styles.sdTitle}>Description (Optional)</Text>
-        <TextArea placeholder={'Description'} />
-      </View>
-      <GradientButton
-        btnText={'Save Dresscode'}
-        onPress={() => {}}
-        btnStyles={{margin: 0, marginHorizontal: 20}}
-      />
-    </View>
-  );
-};
 
 const TicketPurchaseSuccess = () => {
   return (
@@ -168,16 +144,5 @@ const styles = StyleSheet.create({
     color: '#14142B',
     fontFamily: 'sf-ui-display-medium-58646be638f96',
   },
-  selectDress: {
-    paddingHorizontal: 30,
-    paddingVertical: 10,
-    flex: 1,
-  },
-  sdTitle: {
-    fontSize: 16,
-    color: '#6E7191',
-  },
-  sdItem: {
-    marginVertical: 2,
-  },
+ 
 });
