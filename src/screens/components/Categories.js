@@ -22,6 +22,7 @@ const Categories = ({isFilter = false, categoryFilter = []}) => {
     {
       key: 2,
       label: 'Exhibitions',
+      route: 'CreateTicketsScreen',
     },
     {
       key: 3,
