@@ -15,7 +15,9 @@ const CustomButton = ({icon, onPress}) => {
 function TextHeader({
   headerText = 'HEADER_TEXT',
   showBackArrow = true,
+  showLocationIcon = true,
   showRight = true,
+  rightIcon ,
   headerStyle = {},
   sortItems = [],
   showPopup = false,
@@ -41,11 +43,13 @@ function TextHeader({
           <Text style={styles.headerText}>{headerText}</Text>
         </View>
         {showRight && !showPopup && (
-          <>
+         rightIcon ? rightIcon : <>
             <CustomButton icon={<SettingsIcon />} />
-            <CustomButton
-              icon={<EvilIcons name={'location'} size={30} color={'#FFF'} />}
-            />
+            {showLocationIcon ? (
+              <CustomButton
+                icon={<EvilIcons name={'location'} size={30} color={'#FFF'} />}
+              />
+            ) : null}
           </>
         )}
         {showPopup && sortItems.length > 0 && (
@@ -73,6 +77,7 @@ const styles = StyleSheet.create({
   headerText: {
     color: '#FFF',
     fontSize: 20,
+    fontFamily:"sf-ui-display-heavy",
     lineHeight: 23.87,
     marginLeft: 15,
   },

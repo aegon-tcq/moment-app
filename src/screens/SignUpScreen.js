@@ -49,7 +49,7 @@ export default SignUpScreen = ({navigation}) => {
           <Image
             style={{
               height: '100%',
-              width: '28%',
+              width: '30%',
             }}
             source={require('../assets/momentz_final.png')}
           />

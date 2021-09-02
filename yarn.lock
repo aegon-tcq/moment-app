@@ -5819,6 +5819,11 @@
   dependencies:
     "dotenv" "^10.0.0"
 
+"react-native-face-pile@^1.9.0":
+  "integrity" "sha512-q9nzn0Eh14gGAmLKUc4PC40MV3u9hA1BcVlF8LbGZ8ybVDxaaWdjRPAdGEqPiS6FS+0s82D/aqD/EzyZVat9ug=="
+  "resolved" "https://registry.npmjs.org/react-native-face-pile/-/react-native-face-pile-1.9.0.tgz"
+  "version" "1.9.0"
+
 "react-native-gesture-handler@^1.10.3":
   "integrity" "sha512-cBGMi1IEsIVMgoox4RvMx7V2r6bNKw0uR1Mu1o7NbuHS6BRSVLq0dP34l2ecnPlC+jpWd3le6Yg1nrdCjby2Mw=="
   "resolved" "https://registry.npmjs.org/react-native-gesture-handler/-/react-native-gesture-handler-1.10.3.tgz"
@@ -5892,6 +5897,11 @@
   dependencies:
     "warn-once" "^0.1.0"
 
+"react-native-segmented-control-tab@^3.4.1":
+  "integrity" "sha512-BNPdlE9Unr0Xabewn8W+FhBMLjssXy9Ey7S7AY0hXlrKrEKFdC9z0yT+eEWd5dLam4T6T4IuGL8b7ZF4uGyWNw=="
+  "resolved" "https://registry.npmjs.org/react-native-segmented-control-tab/-/react-native-segmented-control-tab-3.4.1.tgz"
+  "version" "3.4.1"
+
 "react-native-svg-transformer@^0.14.3":
   "integrity" "sha512-agDGdMeeBAsWEgg/u7mjtR2Z3c8smGCLep/n3svwifut9dpswZCP+bSIrU8ekg6RNtxAJL+eGJbWjJ38vWxw6g=="
   "resolved" "https://registry.npmjs.org/react-native-svg-transformer/-/react-native-svg-transformer-0.14.3.tgz"
@@ -5924,7 +5934,7 @@
     "prop-types" "^15.7.2"
     "yargs" "^16.1.1"
 
-"react-native@*", "react-native@0.64.2":
+"react-native@0.64.2":
   "integrity" "sha512-Ty/fFHld9DcYsFZujXYdeVjEhvSeQcwuTGXezyoOkxfiGEGrpL/uwUZvMzwShnU4zbbTKDu2PAm/uwuOittRGA=="
   "resolved" "https://registry.npmjs.org/react-native/-/react-native-0.64.2.tgz"
   "version" "0.64.2"
@@ -5997,7 +6007,7 @@
     "react-shallow-renderer" "^16.13.1"
     "scheduler" "^0.20.1"
 
-"react@*", "react@17.0.1":
+"react@17.0.1":
   "integrity" "sha512-lG9c9UuMHdcAexXtigOZLX8exLWkW0Ku29qPRU8uhF2R9BN96dLCt0psvzPLlHc5OWkgymP3qwTRgbnw5BKx3w=="
   "resolved" "https://registry.npmjs.org/react/-/react-17.0.1.tgz"
   "version" "17.0.1"

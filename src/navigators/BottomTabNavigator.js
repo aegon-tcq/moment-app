@@ -9,6 +9,7 @@ import ExploreSearchScreen from './../screens/ExploreSearchScreen/index';
 import Colors from '../constants/Colors';
 import {View, TouchableOpacity} from 'react-native';
 import NotificationScreen from './../screens/NotificationScreen';
+import EventStackNavigator from "./EventNavigator"
 
 const BottomTab = createBottomTabNavigator();
 
@@ -49,7 +50,7 @@ export default BottomTabNavigator = () => {
       />
       <BottomTab.Screen
         name="Events"
-        component={ExploreSearchScreen}
+        component={EventStackNavigator}
         options={{
           tabBarIcon: ({focused, color}) => (
             <EventsIcon style={{color: color}} />

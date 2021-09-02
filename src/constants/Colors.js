@@ -1,6 +1,8 @@
 export default {
   description: '#4E4B66',
   gray: '#D9DBE9',
+  darkGray:"#14142B",
+  lightGray:"#A0A3BD",
   white:"#FFFFFF",
   grayLight: '#F7F7FC',
   OffWhite:"#FCFCFC",
@@ -23,4 +25,5 @@ export default {
   secondary: '#140C56',
   darkPurple: '#461694',
   tabInactive: '#5B5B5B',
+  yellow:'#F4B740'
 };

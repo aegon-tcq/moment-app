@@ -12,7 +12,7 @@ const CustomButton = ({icon, onPress}) => {
   return <TouchableOpacity onPress={onPress}>{icon}</TouchableOpacity>;
 };
 
-function HeaderWithOptions({headerText = 'HEADER_TEXT', headerStyle = {}}) {
+function HeaderWithOptions({headerText = 'HEADER_TEXT', headerStyle = {},headerViewStyle = {}}) {
   const navigation = useNavigation();
   return (
     <LinearGradient
@@ -20,7 +20,7 @@ function HeaderWithOptions({headerText = 'HEADER_TEXT', headerStyle = {}}) {
       end={{x: 1, y: 0.5}}
       colors={['#2A7E8D', '#140C56']}
       style={[styles.linearGradient, headerStyle]}>
-      <View style={styles.root}>
+      <View style={[styles.root,headerViewStyle]}>
         <CustomButton
           onPress={() => navigation.pop()}
           icon={<AntDesign name={'arrowleft'} size={30} color={'#FFF'} />}
